@@ -2,7 +2,7 @@ import pickle
 import pandas as pd
 import streamlit as st
 
-with open('study_planner_model.pkl', 'rb') as f:
+with open(r'study_planner_model.pkl', 'rb') as f:
     model = pickle.load(f)
 
 st.title("Personalised Study Planner")
@@ -21,4 +21,5 @@ input_df = pd.DataFrame({
 })
 
 prediction = model.predict(input_df)
+
 st.success(f'You are recommeded to study {prediction[0]:.2f} hours in a day')
